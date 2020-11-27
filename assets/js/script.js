@@ -1,20 +1,49 @@
 $(document).ready(function() {
     var widget = SC.Widget(document.getElementById('soundcloud_widget'));
-    widget.bind(SC.Widget.Events.READY, function() {
-    });
-    $('#player').click(function() {
-      widget.toggle();
+    // widget.bind(SC.Widget.Events.READY, function() {
 
-      $('#pause').click(function() {
-      widget.pause();
+    //     alert('ready');
+    // });
+
+
+
+
+
+    widget.bind(SC.Widget.Events.READY, function() {
+
+        alert('gggggggg');
+
+        
+        
+           
+    });
+
+
+    $('#player').click(function() {
+        widget.toggle();
+        // $(this).attr('class', 'fa fa-pause fa-3x');
       });
 
-      $('#backward').click(function() {
-        widget.prev();
-        });
 
-        $('#forward').click(function() {
-            widget.next();
-            })
-    });
+
+      
+    
+
+    //   $('#pause').click(function() {
+    //   widget.pause();
+    //   });
+
+    //   $('#backward').click(function() {
+    //     widget.prev();
+    //     });
+
+    //     $('#forward').click(function() {
+    //         widget.next();
+    //         })
+    
+
+
+
+
+  
   });
