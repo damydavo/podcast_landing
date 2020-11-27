@@ -10,18 +10,10 @@ $(document).ready(function() {
 
 
     widget.bind(SC.Widget.Events.READY, function() {
-
-        alert('gggggggg');
-
-        
-        
-           
     });
-
-
     $('#player').click(function() {
         widget.toggle();
-        // $(this).attr('class', 'fa fa-pause fa-3x');
+        $(this).attr('class', 'fa fa-pause fa-3x');
       });
 
 
