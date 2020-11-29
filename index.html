@@ -15,7 +15,7 @@
         <div class="podcast-icon">
             <img src="assets/images/pun.png" style="max-width: 100px;" alt="podcast-icon">
         </div>
-        <div class="text md">
+        <div class="podcast-text">
             <h3>PODCAST</h3>
         </div>
     </section>
@@ -37,48 +37,7 @@
 <!-- showcase area end -->
 
     <!-- from soundcloud -->
-<section id="section" class="my-4">
-           <div class="container py-5">
-                <div class="player-background p-2">
-                    <h3>Build In Nigeria</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat at modi asperiores neque laudantium. Velit deserunt vitae sed, suscipit dignissimos optio voluptas, eius recusandae voluptatem unde voluptatibus adipisci provident numquam.</p>
-                    <div class="py-2">
-                        <iframe id="soundcloud_widget"
-                        src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/935709106&color: #EC1B23;"
-                        width="100%"
-                        height="140"
-                        frameborder="no"></iframe>
-                  
-                </div>
-            </div>
-
-            <div class="container py-1">
-                <div class="player-background p-2">
-                    <h3>Build In Nigeria</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat at modi asperiores neque laudantium. Velit deserunt vitae sed, suscipit dignissimos optio voluptas, eius recusandae voluptatem unde voluptatibus adipisci provident numquam.</p>
-                    <div class="py-2">
-                        <iframe id="soundcloud_widget"
-                        src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/935709106&color: #EC1B23;"
-                        width="100%"
-                        height="140"
-                        frameborder="no"></iframe>
-                  
-                </div>
-            </div>
-
-            <div class="container py-1">
-                <div class="player-background p-2">
-                    <h3>Build In Nigeria</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat at modi asperiores neque laudantium. Velit deserunt vitae sed, suscipit dignissimos optio voluptas, eius recusandae voluptatem unde voluptatibus adipisci provident numquam.</p>
-                    <div class="py-2">
-                        <iframe id="soundcloud_widget"
-                        src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/935709106&color: #EC1B23;"
-                        width="100%"
-                        height="140"
-                        frameborder="no"></iframe>
-                  
-                </div>
-            </div>
+        <section id="section" class="my-4">
         </section>
          
         <!-- end -->
@@ -86,5 +45,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
   <script src="assets/js/script.js"></script>
+  <script>
+    let section = document.getElementById("section");
+
+    $.get("https://punchng.com/wp-json/wp/v2/posts?categories=91229&per_page=7&page=1", function(data, status){
+    for ( var i in data) {
+        if (i == 0) { var index = 5} else {  var index = 1 }
+            var id = data[i].date;
+            var title = data[i].title.rendered;
+            var body = data[i].content.rendered;
+            var time = data[i].date;
+            var iframe = data[i].x_metadata.podcast_iframe;
+            // var src = iframe.getElementsByTagName("iframe").src
+            var new_timeline = '<div class="container py-'+index+'"> <div class="player-background p-2"> <h3 style="font-weight: 600; display: contents; font-size: 25px;">' + title + '</h3> <p>' + body + '</p> <div class="py-2"> </div> </div>'
+            // <iframe id="soundcloud_widget" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/935709106&color: #EC1B23;" width="100%" height="140" frameborder="no"></iframe>
+            section.innerHTML += new_timeline;
+            // document.getElementById("myFrame").src
+            // console.log(src);
+        }
+    });
+  </script>
 </body>
 </html>

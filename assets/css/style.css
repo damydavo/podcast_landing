@@ -10,6 +10,14 @@
   margin: 0;
 }
 
+.podcast-icon {
+  padding-left: 30px;
+}
+.podcast-text {
+  font-size: 20px;
+  color: grey;
+}
+
 body {
   font-family: "Lato", sans-serif;
   color: #333;
